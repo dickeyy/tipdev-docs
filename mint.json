@@ -1,15 +1,15 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Tip.dev Docs",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#9563FF",
-    "light": "#AE87FF",
-    "dark": "#0D001D",
+    "primary": "#ff7ac6",
+    "light": "#e56db2",
+    "dark": "#ff7ac6",
     "background": {
       "dark": "#090014"
     },
@@ -21,12 +21,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:hi@tip.dev"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://tip.dev/dashboard"
   },
   "tabs": [
     {
@@ -75,8 +75,13 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/tipthisdev",
+    "github": "https://github.com/dickeyy/tip-dev",
+    "discord": "https://discord.com/invite/DsxygKZe54"
+  },
+  "analytics": {
+    "ga4": {
+        "measurementId": "G-S4Q5RQRFRF"
+    }
   }
 }
