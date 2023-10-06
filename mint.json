@@ -42,13 +42,13 @@
     },
     {
       "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "icon": "discord",
+      "url": "https://tip.dev/discord"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://tip.dev/blog"
     }
   ],
   "navigation": [
@@ -75,9 +75,9 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/tipthisdev",
-    "github": "https://github.com/dickeyy/tip-dev",
-    "discord": "https://discord.com/invite/DsxygKZe54"
+    "twitter": "https://twitter.com/tipdotdev",
+    "github": "https://github.com/tipdotdev",
+    "discord": "https://tip.dev/discord"
   },
   "analytics": {
     "ga4": {
