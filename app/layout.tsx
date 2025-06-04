@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     search={{
                         enabled: true,
                         options: {
-                            api: "https://api.tip.dev/api/search"
+                            api: "https://docs.tip.dev/api/search"
                         }
                     }}
                 >
