@@ -1,0 +1,55 @@
+name: Sync Fork
+
+on:
+  repository_dispatch:
+    types: [sync]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Backup workflow file
+        run: |
+          mkdir -p .github/workflows
+          cp .github/workflows/sync.yml /tmp/sync.yml || true
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/tipdotdev/docs.git
+          git fetch upstream
+
+      - name: Hard reset to upstream
+        run: |
+          git checkout main
+          git reset --hard upstream/main
+
+      - name: Restore workflow file
+        run: |
+          cp /tmp/sync.yml .github/workflows/sync.yml || true
+
+      - name: Remove parent workflow files except sync.yml
+        run: |
+          find .github/workflows -type f ! -name 'sync.yml' -delete
+
+      - name: Stage workflow deletions
+        run: |
+          git add -u .github/workflows
+
+      - name: Commit and force push if needed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add .github/workflows/sync.yml
+          git diff --cached --quiet || git commit -m "Restore sync workflow after upstream sync"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          git push origin main --force
